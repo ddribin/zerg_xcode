@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'zerg_xcode'
+
+plugin = ARGV.shift
+plugin = 'help' unless ZergXcode::Plugins.all.include? plugin
+ZergXcode::Plugins.run(plugin, ARGV)

@@ -1,0 +1,124 @@
+h1. ZergXcode
+
+ZergXcode is a tool and library for performing automated modifications to Xcode
+project files. It can be used to work around Xcode's limitations, such as
+* the cumbersome UI for assigning files to the main target vs the test target
+* the impossibility to easily drop other people's code in your project
+* a problem that annoys you enough to learn the API and write a ruby script   
+
+h2. User Instructions
+
+If you're on OSX Leopard, you already have most of the infrastructure in place.
+Install the gem by typing the following in Terminal.
+
+<pre>sudo gem install zerg_xcode</pre>
+
+Stay in Terminal and take a look at the available commands.
+<pre>zerg-xcode help</pre>
+
+Then start playing with your code project.
+<pre>
+zerg-xcode help
+zerg-xcode help ls
+zerg-xcode ls ProjectName
+</pre>
+
+h2. Developer Notes
+
+The rest of the file is useful if you're considering tweaking the code. Here are
+a few reasons to use this library:
+* ruby and rubygems come pre-installed on every Mac
+* full test coverage, so it's high quality and easy to refactor
+* MIT license, so your boss will not hate you
+* all commands are plug-ins, so all the infrastructure is in place
+
+h3. Getting started.
+
+It's recommended to start by playing with the API in
+<code>lib/zerg_xcode/shortcuts.rb</code>
+
+<pre>
+moonstone:ZergSupport victor$ zerg-xcode irb ZergSupport
+>> $p
+*snip*
+>> $p.attrs   # shows the names of all the attributes of the Xcode object
+=> ["isa", "buildConfigurationList", "hasScannedForEncodings", "targets", "projectDirPath", "compatibilityVersion", "projectRoot", "mainGroup"]
+>> $p['targets'].first.attrs   # navigates a list 
+=> ["name", "isa", "productType", "buildConfigurationList", "productReference", "productName", "buildRules", "dependencies", "buildPhases"]
+>> $p['targets'].first['name']   # inspects attributes
+=> "ZergSupport"
+>> $p['targets'].map { |target| target['name'] }  # more attribute inspection
+=> ["ZergSupport", "ZergTestSupport", "ZergSupportTests"]
+>> $p.all_files.length  # call method in PBXProject 
+=> 116
+</pre>
+
+You can up load your favorite Xcode project in irb, and understand the object
+graph. Once you feel you have a decent grasp, you can start experimenting with
+changing the graph, as shown below.
+
+<pre>
+moonstone:ZergSupport victor$ zerg-xcode irb ZergSupport
+>> $p['targets'][2]['name'] 
+=> "ZergSupportTests"
+>> $p['targets'][2]['name'] = 'ZergSupportTestz'
+=> "ZergSupportTestz"
+>> $p.save!  # the project remembers where it was loaded from
+=> 54809
+>> quit  # now load the project in Xcode and see the change
+</pre>
+
+h3. Plug-ins Extend the Command Set
+
+The set of commands accepted by the <code>zerg-xcode</code> tool can be extended
+by adding a plug-in, which is nothing but a ruby file that exists in
+<code>lib/zerg_xcode/plugins</code>. An easy example to get you started can be
+found at <code>lib/zerg_xcode/plugins/ls.rb</code>. The code in there should
+help you if you want to write your own command-line tool as well.
+
+Plug-ins must implement the methods <code>run(args)</code> (called when the
+command is executed) and <code>help</code> (called when the user needs help on
+your plug-in), which must return a Hash with the keys <code>:short</code> and
+<code>:long</code>.
+
+If you write a plug-in that seems even remotely useful, please don't be shy and
+send a Pull Request on Github.
+
+h3. Encoding and Decoding Files
+
+The code is in <code>lib/zerg_xcode/file_format</code>. You can safely ignore it
+unless you're handling a new file format, or you want to make the decoding
+better.
+
+A .pbxproj file is decoded by the chain Lexer -> Parser -> Archiver.unarchive
+into an object graph. An object graph is encoded back into a .pbxproj by the
+chain Archiver.archive -> Encoder.
+
+The decoding process discards comments and the order of objects in the graph, so
+an encoded .pbxproj will not be the same as the original. However, Xcode will
+happily open an encoded file, and that's all that matters.
+
+h3. Xcode Object Graph
+
+Objects in the Xcode object graph are represented by XcodeObject instances. The
+code for XcodeObject is in <code>lib/zerg_xcode/objects/xcode_object.rb</code>.
+Xcode objects use the 'isa' attribute to indicate their class. 
+<code>XcodeObject.new</code> implements isa-based polymorphism as follows: if
+<code>ZergXcode::Objects</code> has a class with the same name as the 'isa'
+property, that class is instantiated instead of <code>XcodeObject.new</code>.
+
+So, you can add magic methods to Xcode objects by implementing them in 
+XcodeObject subclasses contained in the <code>ZergXcode::Objects</code> module.
+By convention, these classes are implemented in
+<code>lib/zerg_xcode/objects</code>. 
+ 
+XcodeObject stores the attributes of the original object, and also keeps track
+of subtle meta-data from the original objects, such as the object version and
+archive identifier. This is done so modified Xcode files resemble the originals
+as much as possible.
+
+h3. Testing
+
+The <code>test</code> directory contains a parallel tree to
+<code>lib/zerg_xcode</code>. Coverage must remain excellent, because this is a
+tool that deals with people's work.
