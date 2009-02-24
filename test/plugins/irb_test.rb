@@ -1,4 +1,3 @@
-require 'stringio'
 require 'test/unit'
 require 'test/plugins/test_helper.rb'
 

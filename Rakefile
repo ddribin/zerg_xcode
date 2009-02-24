@@ -2,11 +2,11 @@ require 'rubygems'
 require 'echoe'
 
 Echoe.new('zerg_xcode') do |p|
-  p.project = 'rails-pwnage' # rubyforge project
+  p.project = 'zerglings' # rubyforge project
   
   p.author = 'Victor Costan'
   p.email = 'victor@zergling.net'
-  p.summary = 'Xcode project processor, Zerg style.'
+  p.summary = 'Automated modifications for Xcode project files'
   p.url = 'http://www.zergling.net/'
   p.runtime_dependencies = []
   p.dependencies = []

@@ -1,7 +1,7 @@
 Quickstart for Rubyforge:
 
 1) Checkout the zergxcode code
-svn co svn+ssh://your_user@rubyforge.org/var/svn/rails-pwnage/zerg_xcode
+git clone git@github.com:costan/zerg_xcode.git
 
 2) Install the rubyforge gem
 gem install rubyforge
@@ -13,13 +13,28 @@ rubyforge setup
 rubyforge login
 
 5) Get project configuration from rubyforge
-rubyforge config rails-pwnage
+rubyforge config zerglings
 
 6) Create a package to release under
-rubyforge create_package rails-pwnage zergxcode
+rubyforge create_package zerglings zerg_xcode
 
 7) Install the echoe gem (required for building this gem)
 gem install echoe
 
 8) Release the gem (finally!)
 rake release
+
+Releasing a new gemspec to Github
+
+1) Build the gem
+rake package
+
+2) Copy the spec
+cp pkg/zerg_xcode-0.1/zerg_xcode.gemspec .
+
+3) Commit the spec
+git add zerg_xcode.gemspec
+git commit -m "New gemspec, for Github distribution."
+
+4) Push to Github
+git push

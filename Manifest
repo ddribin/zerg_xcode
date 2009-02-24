@@ -11,6 +11,7 @@ lib/zerg_xcode/objects/pbx_project.rb
 lib/zerg_xcode/objects/xcode_object.rb
 lib/zerg_xcode/plugins/core/core.rb
 lib/zerg_xcode/plugins/help.rb
+lib/zerg_xcode/plugins/import.rb
 lib/zerg_xcode/plugins/irb.rb
 lib/zerg_xcode/plugins/ls.rb
 lib/zerg_xcode/plugins/retarget.rb
@@ -30,7 +31,8 @@ test/objects/pbx_build_file_test.rb
 test/objects/pbx_native_target_test.rb
 test/objects/pbx_project_test.rb
 test/objects/xcode_object_test.rb
-test/plugins/core_test.rb
+test/plugins/core/core_test.rb
+test/plugins/import_test.rb
 test/plugins/irb_test.rb
 test/plugins/ls_test.rb
 test/plugins/retarget_test.rb
