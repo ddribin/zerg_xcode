@@ -1,6 +1,6 @@
 Quickstart for Rubyforge:
 
-1) Checkout the zergxcode code
+1) Get the code
 git clone git@github.com:costan/zerg_xcode.git
 
 2) Install the rubyforge gem
@@ -30,7 +30,7 @@ Releasing a new gemspec to Github
 rake package
 
 2) Copy the spec
-cp pkg/zerg_xcode-0.1/zerg_xcode.gemspec .
+cp pkg/zerg_xcode-*/zerg_xcode.gemspec .
 
 3) Commit the spec
 git add zerg_xcode.gemspec

@@ -119,23 +119,23 @@
 		575520AB0F4E17E30046B0EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		575520AC0F4E17E30046B0EE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		575520AD0F4E17E30046B0EE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57551D5D0F4DE21E0046B0EE /* QuartzCore.framework */; };
-		575520B80F4E18A10046B0EE /* libZergSupport.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57551CB90F4DE19D0046B0EE /* libZergSupport.a */; };
-		575520B90F4E18B40046B0EE /* libZergTestSupport.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57551FB70F4E0EBA0046B0EE /* libZergTestSupport.a */; };
+		5767B1110F5658EA002F11FE /* libZergTestSupport.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 572E0BBE0F56569600E3FEF7 /* libZergTestSupport.a */; };
+		5767B1130F565903002F11FE /* libZergSupport.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 572E0BBC0F56569600E3FEF7 /* libZergSupport.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		57551FBB0F4E0EDA0046B0EE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			containerPortal = 29B97313FDCFA39411CA2CEF /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 57551CB80F4DE19D0046B0EE /* ZergSupport */;
+			remoteGlobalIDString = 57551CB80F4DE19D0046B0EE;
 			remoteInfo = ZergSupport;
 		};
 		57551FBD0F4E0EEE0046B0EE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			containerPortal = 29B97313FDCFA39411CA2CEF /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 57551FB60F4E0EBA0046B0EE /* ZergTestSupport */;
+			remoteGlobalIDString = 57551FB60F4E0EBA0046B0EE;
 			remoteInfo = ZergTestSupport;
 		};
 /* End PBXContainerItemProxy section */
@@ -144,11 +144,11 @@
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* ZergSupport_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZergSupport_Prefix.pch; sourceTree = "<group>"; };
-		57551CB90F4DE19D0046B0EE /* libZergSupport.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libZergSupport.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		572E0BBC0F56569600E3FEF7 /* libZergSupport.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libZergSupport.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		572E0BBE0F56569600E3FEF7 /* libZergTestSupport.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libZergTestSupport.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		572E0BBF0F56569600E3FEF7 /* ZergSupportTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZergSupportTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57551D5D0F4DE21E0046B0EE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		57551E3A0F4E0AE60046B0EE /* ZergSupportTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZergSupportTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57551E3C0F4E0AE60046B0EE /* ZergSupportTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZergSupportTests-Info.plist"; sourceTree = "<group>"; };
 		57551E790F4E0D4D0046B0EE /* ControllerSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerSupport.h; sourceTree = "<group>"; };
 		57551E7A0F4E0D4D0046B0EE /* ZNSyncController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZNSyncController.h; sourceTree = "<group>"; };
@@ -255,8 +255,6 @@
 		57551EE50F4E0D4D0046B0EE /* ZNXmlHttpRequestTest.body */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ZNXmlHttpRequestTest.body; sourceTree = "<group>"; };
 		57551EE60F4E0D4D0046B0EE /* ZNXmlHttpRequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZNXmlHttpRequestTest.m; sourceTree = "<group>"; };
 		57551EE70F4E0D4D0046B0EE /* ZNXmlHttpRequestTest.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ZNXmlHttpRequestTest.xml; sourceTree = "<group>"; };
-		57551FB70F4E0EBA0046B0EE /* libZergTestSupport.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libZergTestSupport.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,7 +277,7 @@
 				575520AB0F4E17E30046B0EE /* UIKit.framework in Frameworks */,
 				575520AC0F4E17E30046B0EE /* CoreGraphics.framework in Frameworks */,
 				575520AD0F4E17E30046B0EE /* QuartzCore.framework in Frameworks */,
-				575520B90F4E18B40046B0EE /* libZergTestSupport.a in Frameworks */,
+				5767B1110F5658EA002F11FE /* libZergTestSupport.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,57 +289,27 @@
 				575520A70F4E17D80046B0EE /* UIKit.framework in Frameworks */,
 				575520A80F4E17D80046B0EE /* CoreGraphics.framework in Frameworks */,
 				575520A90F4E17D80046B0EE /* QuartzCore.framework in Frameworks */,
-				575520B80F4E18A10046B0EE /* libZergSupport.a in Frameworks */,
+				5767B1130F565903002F11FE /* libZergSupport.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		19C28FACFE9D520D11CA2CBB /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				57551CB90F4DE19D0046B0EE /* libZergSupport.a */,
-				57551E3A0F4E0AE60046B0EE /* ZergSupportTests.app */,
-				57551FB70F4E0EBA0046B0EE /* libZergTestSupport.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
 				57551E770F4E0D4D0046B0EE /* ZergSupport */,
-				29B97315FDCFA39411CA2CEA /* Other Sources */,
-				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
-				19C28FACFE9D520D11CA2CBB /* Products */,
-				57551D5D0F4DE21E0046B0EE /* QuartzCore.framework */,
-				57551E3C0F4E0AE60046B0EE /* ZergSupportTests-Info.plist */,
+				572E0BBD0F56569600E3FEF7 /* Products */,
 			);
 			name = CustomTemplate;
-			sourceTree = "<group>";
-		};
-		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
-			isa = PBXGroup;
-			children = (
-				32CA4F630368D1EE00C91783 /* ZergSupport_Prefix.pch */,
-			);
-			name = "Other Sources";
-			sourceTree = "<group>";
-		};
-		29B97317FDCFA39411CA2CEA /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
-				8D1107310486CEB800E47090 /* Info.plist */,
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				57551D5D0F4DE21E0046B0EE /* QuartzCore.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
@@ -349,16 +317,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		572E0BBD0F56569600E3FEF7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				572E0BBC0F56569600E3FEF7 /* libZergSupport.a */,
+				572E0BBE0F56569600E3FEF7 /* libZergTestSupport.a */,
+				572E0BBF0F56569600E3FEF7 /* ZergSupportTests.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		57551E770F4E0D4D0046B0EE /* ZergSupport */ = {
 			isa = PBXGroup;
 			children = (
 				57551E780F4E0D4D0046B0EE /* ControllerSupport */,
 				57551E840F4E0D4D0046B0EE /* FormatSupport */,
-				57551EA00F4E0D4D0046B0EE /* LICENSE */,
-				57551EA10F4E0D4D0046B0EE /* MIT-LICENSE */,
 				57551EA20F4E0D4D0046B0EE /* ModelSupport */,
 				57551EC00F4E0D4D0046B0EE /* TestSupport */,
 				57551ED90F4E0D4D0046B0EE /* WebSupport */,
+				57551EA00F4E0D4D0046B0EE /* LICENSE */,
+				57551EA10F4E0D4D0046B0EE /* MIT-LICENSE */,
+				57551E3C0F4E0AE60046B0EE /* ZergSupportTests-Info.plist */,
+				32CA4F630368D1EE00C91783 /* ZergSupport_Prefix.pch */,
 			);
 			path = ZergSupport;
 			sourceTree = "<group>";
@@ -583,7 +563,7 @@
 			);
 			name = ZergSupport;
 			productName = ZergSupport;
-			productReference = 57551CB90F4DE19D0046B0EE /* libZergSupport.a */;
+			productReference = 572E0BBC0F56569600E3FEF7 /* libZergSupport.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		57551E390F4E0AE60046B0EE /* ZergSupportTests */ = {
@@ -601,7 +581,7 @@
 			);
 			name = ZergSupportTests;
 			productName = ZergSupportTests;
-			productReference = 57551E3A0F4E0AE60046B0EE /* ZergSupportTests.app */;
+			productReference = 572E0BBF0F56569600E3FEF7 /* ZergSupportTests.app */;
 			productType = "com.apple.product-type.application";
 		};
 		57551FB60F4E0EBA0046B0EE /* ZergTestSupport */ = {
@@ -619,18 +599,19 @@
 			);
 			name = ZergTestSupport;
 			productName = ZergTestSupport;
-			productReference = 57551FB70F4E0EBA0046B0EE /* libZergTestSupport.a */;
+			productReference = 572E0BBE0F56569600E3FEF7 /* libZergTestSupport.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		29B97313FDCFA39411CA2CEA /* Project object */ = {
+		29B97313FDCFA39411CA2CEF /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ZergSupport" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			productRefGroup = 572E0BBD0F56569600E3FEF7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -926,5 +907,5 @@
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+	rootObject = 29B97313FDCFA39411CA2CEF /* Project object */;
 }

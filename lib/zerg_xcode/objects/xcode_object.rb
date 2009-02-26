@@ -71,6 +71,16 @@ class ZergXcode::XcodeObject
     visit_hash(@attrs, &accept)
     self
   end
+  
+  # Convenience method mapping over visit and exploring each object once.
+  def visit_once(&accept)
+    visited = Set.new([self])
+    self.visit do |object, parent, key, value|
+      visited << object
+      next_value = yield object, parent, key, value
+      visited.include?(value) ? false : next_value
+    end
+  end
 
   def visit_hash(hash, &accept)
     hash.each_key do |key|

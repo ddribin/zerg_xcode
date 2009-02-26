@@ -46,6 +46,32 @@ class ObjectTest < Test::Unit::TestCase
     assert_equal golden_visited.sort, visited.sort
   end
   
+  def test_visit_once
+    golden_visited = [
+      [49, 'sub1', @sub1],      
+      [39, 'array', @sub1[:array]],
+      [39, '0', 'a'],
+      [39, '1', 'b'],
+      [39, '2', 'c'],
+      [39, 'string', 's'],
+      [39, 'root', @root],
+      [49, 'sub2', @sub2],
+      [42, 'hash', @sub2[:hash]],
+      [42, 'k', 'v'],
+      [42, 'k2', 'v2'],
+      [42, 'sub1', @sub1],
+    ]
+    @sub1['root'] = @root
+    
+    visited = []
+    @root.visit_once do |object, parent, key, value|
+      assert_equal value, parent[key], 'Parent/Key/Value check'
+      visited << [object.archive_id, key.to_s, value]
+      next true
+    end
+    assert_equal golden_visited.sort, visited.sort
+  end
+  
   def test_mutating_visit
     golden_visited = [
       [49, 'sub1', @sub1],
