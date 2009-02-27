@@ -33,7 +33,11 @@ END
       when :copy
         target_dir = File.dirname op[:to]
         FileUtils.mkdir_p  target_dir unless File.exist? target_dir
-        FileUtils.cp_r op[:from], op[:to]
+        if File.exist? op[:from]
+          FileUtils.cp_r op[:from], op[:to]
+        else
+          print "Source does not have file #{op[:from]}\n"
+        end
       end
     end
   end
@@ -52,14 +56,14 @@ END
     old_target_paths = target.all_files.map { |file| file[:path] } 
     
     # duplicate the source, because the duplicate's object graph will be warped
-    source = ZergXcode::XcodeObject.from source
+    scrap_source = ZergXcode::XcodeObject.from source
     
-    mappings = cross_reference source, target
-    bins = bin_mappings mappings, source
+    mappings = cross_reference scrap_source, target
+    bins = bin_mappings mappings, scrap_source
     
     # special case for merging targets
-    map! source, mappings
-    merge! source['targets'], target['targets']
+    map! scrap_source, mappings
+    merge! scrap_source['targets'], target['targets']
     
     # merge the object graphs
     bins[:merge].each do |object|

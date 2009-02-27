@@ -46,6 +46,7 @@ test/plugins/ls_test.rb
 test/plugins/retarget_test.rb
 test/plugins/test_helper.rb
 test/shortcuts_test.rb
+testdata/FlatTestApp/FlatTestApp.xcodeproj/project.pbxproj
 testdata/project.pbxproj
 testdata/project.pbxproj.compat
 testdata/TestApp/TestApp.xcodeproj/project.pbxproj

@@ -130,7 +130,10 @@ class Plugins::ImportTest < Test::Unit::TestCase
   def test_execute_file_ops
     ops = [{ :op => :delete, :path => 'testdata/junk.m' },
            { :op => :copy, :from => 'test/awesome.m',
-                           :to => 'testdata/NewDir/awesome.m' }]
+                           :to => 'testdata/NewDir/awesome.m' },
+           { :op => :copy, :from => 'test/ghost.m',
+                           :to => 'testdata/Dir/ghost.m' },
+          ]
     flexmock(File).should_receive(:exist?).with('testdata/junk.m').
                    and_return(true)
     flexmock(FileUtils).should_receive(:rm_r).with('testdata/junk.m').
@@ -139,14 +142,21 @@ class Plugins::ImportTest < Test::Unit::TestCase
                    and_return(false)
     flexmock(FileUtils).should_receive(:mkdir_p).with('testdata/NewDir').
                         and_return(nil)
+    flexmock(File).should_receive(:exist?).with('test/awesome.m').
+                   and_return(true)
     flexmock(FileUtils).should_receive(:cp_r).
                         with('test/awesome.m', 'testdata/NewDir/awesome.m').
                         and_return(nil)
-                       
-    @plugin.execute_file_ops! ops
+    flexmock(File).should_receive(:exist?).with('testdata/Dir').
+                   and_return(true)
+    flexmock(File).should_receive(:exist?).with('test/ghost.m').
+                   and_return(false)
+
+    output = capture_output { @plugin.execute_file_ops! ops }
+    assert output.index('test/ghost.m'), "Output does not indicate copy failure"
   end
   
-  def test_import_file_ops
+  def test_import_file_ops_flatten
     small = ZergXcode.load 'testdata/TestApp'
     flat = ZergXcode.load 'testdata/FlatTestApp'
     
@@ -181,5 +191,41 @@ class Plugins::ImportTest < Test::Unit::TestCase
       [op[:op].to_s, op[:to] || op[:path], op[:from] || '*']
     end
     assert_equal golden_ops.sort, flat_ops.sort
+  end
+  
+  def test_import_file_ops_branch
+    small = ZergXcode.load 'testdata/TestApp'
+    flat = ZergXcode.load 'testdata/FlatTestApp'
+    
+    golden_ops = [
+      ['delete', 'testdata/FlatTestApp/TestAppAppDelegate.h', '*'],
+      ['delete', 'testdata/FlatTestApp/TestAppAppDelegate.m', '*'],
+      ['delete', 'testdata/FlatTestApp/TestAppViewController.h', '*'],
+      ['delete', 'testdata/FlatTestApp/TestAppViewController.m', '*'],
+      ['copy', 'testdata/FlatTestApp/Classes/TestAppAppDelegate.h',
+               'testdata/TestApp/Classes/TestAppAppDelegate.h'],
+      ['copy', 'testdata/FlatTestApp/Classes/TestAppAppDelegate.m',
+               'testdata/TestApp/Classes/TestAppAppDelegate.m'],
+      ['copy', 'testdata/FlatTestApp/Classes/TestAppViewController.h',
+               'testdata/TestApp/Classes/TestAppViewController.h'],
+      ['copy', 'testdata/FlatTestApp/Classes/TestAppViewController.m',
+               'testdata/TestApp/Classes/TestAppViewController.m'],
+      ['copy', 'testdata/FlatTestApp/TestApp_Prefix.pch',
+               'testdata/TestApp/TestApp_Prefix.pch'],
+      ['copy', 'testdata/FlatTestApp/main.m',
+               'testdata/TestApp/main.m'],
+      ['copy', 'testdata/FlatTestApp/TestAppViewController.xib',
+               'testdata/TestApp/TestAppViewController.xib'],
+      ['copy', 'testdata/FlatTestApp/MainWindow.xib',
+               'testdata/TestApp/MainWindow.xib'],
+      ['copy', 'testdata/FlatTestApp/Info.plist',
+               'testdata/TestApp/Info.plist'],
+    ]
+    
+    file_ops = @plugin.import_project! small, flat
+    branch_ops = file_ops.map do |op|
+      [op[:op].to_s, op[:to] || op[:path], op[:from] || '*']
+    end
+    assert_equal golden_ops.sort, branch_ops.sort
   end
 end
