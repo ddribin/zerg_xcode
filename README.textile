@@ -3,7 +3,9 @@ h1. ZergXcode
 ZergXcode is a tool and library for performing automated modifications to Xcode
 project files. It can be used to work around Xcode's limitations, such as
 * the cumbersome UI for assigning files to the main target vs the test target
+(<code>zerg-xcode retarget</code>)
 * the impossibility to easily drop other people's code in your project
+(<code>zerg-xcode import</code>)
 * a problem that annoys you enough to learn the API and write a ruby script   
 
 h2. User Instructions
