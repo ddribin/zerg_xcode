@@ -3,10 +3,21 @@ class ZergXcode::Objects::PBXProject < ZergXcode::XcodeObject
   # Used to implement save!
   attr_accessor :source_filename
   
+  # :nodoc: override to copy the new metadata
+  def copy_metadata(source)
+    super
+    self.source_filename = source.source_filename
+  end
+
   # Saves a project that was loaded by ZergXcode.load
   def save!
     raise 'Project not loaded by ZergXcode.load' unless @source_filename
     ZergXcode.dump self, @source_filename
+  end
+  
+  # The root path of the project.
+  def root_path
+    ZergXcode::Paths.project_root_at source_filename
   end
   
   # All the files referenced by the project.

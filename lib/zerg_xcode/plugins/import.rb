@@ -1,3 +1,6 @@
+require 'fileutils'
+require 'pathname'
+
 class ZergXcode::Plugins::Import
   include ZergXcode::Objects
   
@@ -16,11 +19,38 @@ END
     source = ZergXcode.load args.shift
     target = ZergXcode.load(args.shift || '.')
     
-    import_project! source, target
+    file_ops = import_project! source, target
     target.save!
+    execute_file_ops! file_ops 
   end
   
+  # Executes the given file operations.
+  def execute_file_ops!(file_ops)
+    file_ops.each do |op|
+      case op[:op]
+      when :delete
+        FileUtils.rm_r op[:path] if File.exist? op[:path]
+      when :copy
+        target_dir = File.dirname op[:to]
+        FileUtils.mkdir_p  target_dir unless File.exist? target_dir
+        FileUtils.cp_r op[:from], op[:to]
+      end
+    end
+  end
+  
+  # Imports the objects of the source project into the target project.
+  # 
+  # Attempts to preserve reference integrity in the target project, as follows.
+  # If the source objects have counterparts in the target, their contents is
+  # merged into the target project's objects.
+  #
+  # Returns an array of file operations that need to be performed to migrate the
+  # files associated with the two projects.
+  #
+  # The target project is modified in place.
   def import_project!(source, target)
+    old_target_paths = target.all_files.map { |file| file[:path] } 
+    
     # duplicate the source, because the duplicate's object graph will be warped
     source = ZergXcode::XcodeObject.from source
     
@@ -49,6 +79,38 @@ END
         next true
       end
     end
+    
+    new_target_paths = target.all_files.map { |file| file[:path] }
+    source_paths = source.all_files.map { |file| file[:path] }
+    return compute_deletes(target.root_path, old_target_paths,
+                           new_target_paths) +
+           compute_copies(source.root_path, source_paths, target.root_path)
+  end
+
+  # Computes the file delete operations in a merge.
+  #
+  # Deletes all the files that aren't in the target project anymore. 
+  def compute_deletes(root, old_paths, new_paths)
+    new_path_set = Set.new(new_paths)
+    old_paths.select { |path| path[0, 2] == './' }.
+              reject { |path| new_path_set.include? path }.
+              map { |path| { :op => :delete, :path => clean_join(root, path) } }
+  end
+
+  # Computes the file copy operations in a merge.
+  #
+  # Copies all the files from the source project assuming they received the same
+  # path in the target project. The assumption is correct if source was imported
+  # into target.
+  def compute_copies(source_root, source_paths, target_root)
+    source_paths.select { |path| path[0, 2] == './' }.map do |path|
+      { :op => :copy, :from => clean_join(source_root, path),
+        :to => clean_join(target_root, path) }
+    end
+  end
+  
+  def clean_join(root, path)
+    Pathname.new(File.join(root, path)).cleanpath.to_s
   end
   
   # Bins merge mappings for a project into mappings to be merged and mappings to
@@ -176,7 +238,7 @@ END
     
   def cross_reference_objects(source, target, mappings)
     return mappings if mappings[source] || mappings[target]    
-    return mappings if source.merge_key != target.merge_key
+    return mappings if source.xref_key != target.xref_key
     
     mappings[target] = target
     mappings[source] = target
@@ -197,11 +259,11 @@ END
     source_keys = {}
     source.each do |value|
       next unless value.kind_of? ZergXcode::XcodeObject
-      source_keys[value.merge_key] = value
+      source_keys[value.xref_key] = value
     end
     target.each do |value|
       next unless value.kind_of? ZergXcode::XcodeObject
-      next unless source_value = source_keys[value.merge_key]
+      next unless source_value = source_keys[value.xref_key]
       cross_reference source_value, value, mappings
     end
     mappings
@@ -210,13 +272,13 @@ END
 end
 
 class ZergXcode::XcodeObject
-  def merge_key
+  def xref_key
     # If the object doesn't have a merge name, use its (unique) object_id.
-    [isa, merge_name || object_id]
+    [isa, xref_name || object_id]
   end
   
-  def merge_name
-    # Do not use this to override merge_name for specific objects. Only use
+  def xref_name
+    # Do not use this to override xref_name for specific objects. Only use
     # it for object families.
     case isa.to_s
     when /BuildPhase$/
@@ -228,31 +290,31 @@ class ZergXcode::XcodeObject
 end
 
 class ZergXcode::Objects::PBXBuildFile
-  def merge_name
-    self['fileRef'].merge_name
+  def xref_name
+    self['fileRef'].xref_name
   end
 end
 
 class ZergXcode::Objects::PBXProject
-  def merge_name
+  def xref_name
     isa.to_s
   end
 end
 
 class ZergXcode::Objects::XCConfigurationList
-  def merge_name
+  def xref_name
     isa.to_s
   end
 end
 
 class ZergXcode::Objects::PBXContainerItemProxy
-  def merge_name
+  def xref_name
     self['remoteInfo']
   end
 end
 
 class ZergXcode::Objects::PBXTargetDependency
-  def merge_name
-    target.merge_name
+  def xref_name
+    target.xref_name
   end
 end

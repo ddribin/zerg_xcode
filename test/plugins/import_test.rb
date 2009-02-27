@@ -25,7 +25,7 @@ class Plugins::ImportTest < Test::Unit::TestCase
     project = ZergXcode.load 'testdata/ZergSupport'
     assert_import_identical project    
   end
-    
+  
   def test_import_differents
     small = ZergXcode.load 'testdata/TestApp'
     small_file_set = Set.new(small.all_files.map { |file| file[:path] })
@@ -64,6 +64,7 @@ class Plugins::ImportTest < Test::Unit::TestCase
   # Clones a project, zaps its metadata, and then tries to merge the clone onto
   # the original. The result should be the original.
   def assert_import_identical(project)
+    real_files = project.all_files.select { |f| f[:path][0, 1] == '.' }
     pre_archive = ZergXcode::Archiver.archive_to_hash project
     
     cloned_project = ZergXcode::XcodeObject.from project    
@@ -73,9 +74,11 @@ class Plugins::ImportTest < Test::Unit::TestCase
       next true
     end
     
-    @plugin.import_project! cloned_project, project
+    file_ops = @plugin.import_project! cloned_project, project
     post_archive = ZergXcode::Archiver.archive_to_hash project
     assert_equal pre_archive, post_archive
+    
+    assert_equal real_files.length, file_ops.length, 'File operations length'
   end
   
   def test_bin_mappings
@@ -89,7 +92,7 @@ class Plugins::ImportTest < Test::Unit::TestCase
                  "Merge and overwrite sets should be disjoint"
     
     [proj['mainGroup'], proj['buildConfigurationList']].each do |object|    
-      assert merge.include?(object), "#{object.merge_key.inspect} not in merge"
+      assert merge.include?(object), "#{object.xref_key.inspect} not in merge"
     end
     
     assert !merge.include?(proj), "Project should not be in any bin"
@@ -117,10 +120,66 @@ class Plugins::ImportTest < Test::Unit::TestCase
     end
     
     objects.each do |object|
-      assert map.include?(object), "Missed object #{object.merge_key.inspect}"
+      assert map.include?(object), "Missed object #{object.xref_key.inspect}"
       
-      assert_equal object.merge_key, map[object].merge_key,
+      assert_equal object.xref_key, map[object].xref_key,
                    "Merge keys for cross-referenced objects do not match"
     end
+  end
+  
+  def test_execute_file_ops
+    ops = [{ :op => :delete, :path => 'testdata/junk.m' },
+           { :op => :copy, :from => 'test/awesome.m',
+                           :to => 'testdata/NewDir/awesome.m' }]
+    flexmock(File).should_receive(:exist?).with('testdata/junk.m').
+                   and_return(true)
+    flexmock(FileUtils).should_receive(:rm_r).with('testdata/junk.m').
+                        and_return(nil)
+    flexmock(File).should_receive(:exist?).with('testdata/NewDir').
+                   and_return(false)
+    flexmock(FileUtils).should_receive(:mkdir_p).with('testdata/NewDir').
+                        and_return(nil)
+    flexmock(FileUtils).should_receive(:cp_r).
+                        with('test/awesome.m', 'testdata/NewDir/awesome.m').
+                        and_return(nil)
+                       
+    @plugin.execute_file_ops! ops
+  end
+  
+  def test_import_file_ops
+    small = ZergXcode.load 'testdata/TestApp'
+    flat = ZergXcode.load 'testdata/FlatTestApp'
+    
+    golden_ops = [
+      ['delete', 'testdata/TestApp/Classes/TestAppAppDelegate.h', '*'],
+      ['delete', 'testdata/TestApp/Classes/TestAppAppDelegate.m', '*'],
+      ['delete', 'testdata/TestApp/Classes/TestAppViewController.h', '*'],
+      ['delete', 'testdata/TestApp/Classes/TestAppViewController.m', '*'],
+      ['copy', 'testdata/TestApp/TestAppAppDelegate.h',
+               'testdata/FlatTestApp/TestAppAppDelegate.h'],
+      ['copy', 'testdata/TestApp/TestAppAppDelegate.m',
+               'testdata/FlatTestApp/TestAppAppDelegate.m'],
+      ['copy', 'testdata/TestApp/TestAppViewController.h',
+               'testdata/FlatTestApp/TestAppViewController.h'],
+      ['copy', 'testdata/TestApp/TestAppViewController.m',
+               'testdata/FlatTestApp/TestAppViewController.m'],
+      ['copy', 'testdata/TestApp/TestApp_Prefix.pch',
+               'testdata/FlatTestApp/TestApp_Prefix.pch'],
+      ['copy', 'testdata/TestApp/main.m',
+               'testdata/FlatTestApp/main.m'],
+      ['copy', 'testdata/TestApp/TestAppViewController.xib',
+               'testdata/FlatTestApp/TestAppViewController.xib'],
+      ['copy', 'testdata/TestApp/MainWindow.xib',
+               'testdata/FlatTestApp/MainWindow.xib'],
+      ['copy', 'testdata/TestApp/Info.plist',
+               'testdata/FlatTestApp/Info.plist'],
+    ]
+    
+    
+    file_ops = @plugin.import_project! flat, small
+    flat_ops = file_ops.map do |op|
+      [op[:op].to_s, op[:to] || op[:path], op[:from] || '*']
+    end
+    assert_equal golden_ops.sort, flat_ops.sort
   end
 end

@@ -59,4 +59,16 @@ class PBXProjectTest < Test::Unit::TestCase
                         and_return(nil)
     project.save!
   end
+  
+  def test_root_path
+    project = ZergXcode.load('testdata/ZergSupport.xcodeproj') 
+    assert_equal 'testdata', project.root_path
+  end
+  
+  def test_copy_metadata
+    project = ZergXcode.load('testdata/ZergSupport.xcodeproj')
+    clone = ZergXcode::XcodeObject.from project
+    
+    assert_equal project.source_filename, clone.source_filename
+  end
 end

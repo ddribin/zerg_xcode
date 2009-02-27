@@ -147,8 +147,12 @@ class ZergXcode::XcodeObject
   
   def shallow_copy
     new_object = self.class.new @attrs.dup
-    new_object.version, new_object.archive_id = version, archive_id
+    new_object.copy_metadata self
     return new_object
-  end  
+  end
+  
+  def copy_metadata(source)
+    self.archive_id, self.version = source.archive_id, source.version 
+  end
 end
 
