@@ -7,14 +7,14 @@ class PBXBuildFileTest < Test::Unit::TestCase
   
   def setup
     @target = ZergXcode.load('testdata/project.pbxproj')['targets'].first
+    @sources_phase = @target['buildPhases'][1]
+    @build_file = @sources_phase['files'].first 
   end
   
   def test_attributes
-    sources_phase = @target['buildPhases'][1]
-    build_file = sources_phase['files'].first
-    assert_equal PBXBuildFile, build_file.class
-    assert_equal 'main.m', build_file.filename
-    assert_equal 'sourcecode.c.objc', build_file.file_type
+    assert_equal PBXBuildFile, @build_file.class
+    assert_equal 'main.m', @build_file.filename
+    assert_equal 'sourcecode.c.objc', @build_file.file_type
     
     big_project = ZergXcode.load('testdata/ZergSupport')
     big_project['targets'].map { |t| t.all_files }.flatten.each do |file|
@@ -37,8 +37,11 @@ class PBXBuildFileTest < Test::Unit::TestCase
   end
   
   def test_xref_name
-    sources_phase = @target['buildPhases'][1]
-    build_file = sources_phase['files'].first
-    assert_equal 'main.m', build_file.xref_name
+    assert_equal 'main.m', @build_file.xref_name
+  end
+  
+  def test_for
+    new_build_file = PBXBuildFile.for @build_file['fileRef']
+    assert_equal @build_file._attr_hash, new_build_file._attr_hash
   end
 end

@@ -10,6 +10,7 @@ require 'zerg_xcode/file_format/paths.rb'
 
 require 'zerg_xcode/objects/xcode_object.rb'
 require 'zerg_xcode/objects/pbx_build_file.rb'
+require 'zerg_xcode/objects/pbx_build_phase.rb'
 require 'zerg_xcode/objects/pbx_container_item_proxy.rb'
 require 'zerg_xcode/objects/pbx_group.rb'
 require 'zerg_xcode/objects/pbx_native_target.rb'

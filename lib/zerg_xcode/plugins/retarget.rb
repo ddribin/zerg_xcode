@@ -1,6 +1,5 @@
 class ZergXcode::Plugins::Retarget
   include ZergXcode::Objects
-  XcodeObject = ZergXcode::XcodeObject
   
   def help
     {:short => 'reassign files to a target or set of targets',
@@ -77,10 +76,7 @@ END
         phase_type = file_phases[file]
         phase = target['buildPhases'].find { |p| p['isa'] ==  phase_type }
         unless phase
-          phase = XcodeObject.new 'isa' => phase_type, 'dependencies' => [],
-                                  'files' => [],
-                                  'buildActionMask' => '2147483647',
-                                  'runOnlyForDeploymentPostprocessing' => '0'
+          phase = PBXBuildPhase.new_phase phase_type
           target['buildPhases'] << phase
         end
         phase['files'] << build_files[file]

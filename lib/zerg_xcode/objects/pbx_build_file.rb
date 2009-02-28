@@ -25,6 +25,11 @@ class ZergXcode::Objects::PBXBuildFile < ZergXcode::XcodeObject
     end
   end
   
+  # Creates a build file for the given file reference.
+  def self.for(file_ref)
+    self.new 'fileRef' => file_ref
+  end
+  
   # :nodoc: override xref_name to borrow the referenced object's name
   def xref_name
     self['fileRef'].xref_name
