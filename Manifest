@@ -18,6 +18,7 @@ lib/zerg_xcode/plugins/help.rb
 lib/zerg_xcode/plugins/import.rb
 lib/zerg_xcode/plugins/irb.rb
 lib/zerg_xcode/plugins/ls.rb
+lib/zerg_xcode/plugins/lstargets.rb
 lib/zerg_xcode/plugins/retarget.rb
 lib/zerg_xcode/shortcuts.rb
 lib/zerg_xcode.rb
@@ -43,6 +44,7 @@ test/plugins/core/core_test.rb
 test/plugins/import_test.rb
 test/plugins/irb_test.rb
 test/plugins/ls_test.rb
+test/plugins/lstargets_test.rb
 test/plugins/retarget_test.rb
 test/plugins/test_helper.rb
 test/shortcuts_test.rb
@@ -51,3 +53,4 @@ testdata/project.pbxproj
 testdata/project.pbxproj.compat
 testdata/TestApp/TestApp.xcodeproj/project.pbxproj
 testdata/ZergSupport.xcodeproj/project.pbxproj
+zerg_xcode.gemspec
