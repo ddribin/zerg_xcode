@@ -27,6 +27,11 @@ class ZergXcode::Objects::PBXProject < ZergXcode::XcodeObject
     FileVisitor.visit self['mainGroup'], project_root, files
     files
   end
+  
+  # :nodoc: override xref_name because PBXProject is a singleton
+  def xref_name
+    isa.to_s
+  end  
 
   # Container for the visitor that lists all files in a project.
   module FileVisitor

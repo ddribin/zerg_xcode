@@ -24,4 +24,9 @@ class ZergXcode::Objects::PBXBuildFile < ZergXcode::XcodeObject
       return 'PBXResourcesBuildPhase'
     end
   end
+  
+  # :nodoc: override xref_name to borrow the referenced object's name
+  def xref_name
+    self['fileRef'].xref_name
+  end  
 end

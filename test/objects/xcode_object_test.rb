@@ -113,6 +113,23 @@ class ObjectTest < Test::Unit::TestCase
     assert_equal @sub1[:string], 'ss'
   end
   
+  def test_xref_name_and_key
+    @obj1 = XcodeObject.from 'isa' => 'Alien', 'name' => 'Name',
+                             'path' => 'Path'
+    @obj2 = XcodeObject.from 'isa' => 'Alien', 'name' => 'Name',
+                             'path' => 'Path', 'explicitPath' => 'XPath'
+    @obj3 = XcodeObject.from 'isa' => 'Alien', 'path' => 'Path'
+    @obj4 = XcodeObject.from 'isa' => 'Alien',
+                             'path' => 'Path', 'explicitPath' => 'XPath'
+                             
+    assert_equal 'Name', @obj1.xref_name
+    assert_equal 'Name', @obj2.xref_name
+    assert_equal 'Path', @obj3.xref_name
+    assert_equal 'XPath', @obj4.xref_name
+    
+    assert_equal [:Alien, 'Name'], @obj1.xref_key
+  end
+  
   def test_deep_copy
     root = XcodeObject.from @root
     assert_equal root[:sub2][:sub1], root[:sub1], 'Deep copy tracks objects'

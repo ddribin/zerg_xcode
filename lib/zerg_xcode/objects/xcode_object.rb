@@ -116,6 +116,33 @@ class ZergXcode::XcodeObject
     end
     value    
   end
+
+  # Graph navigating and cross-referencing.
+
+  # Key used for cross-referencing objects in different graphs. If two objects
+  # in different graphs have the same key, it is very likely that they represent
+  # the same entity.
+  def xref_key
+    # If the object doesn't have a merge name, use its (unique) object_id.
+    [isa, xref_name || object_id]
+  end
+
+  # Name used in referencing an object.
+  # 
+  # An object's name should be unique among objects in the same context. For
+  # instance, objects in the same array (e.g. 'children' in a PBXGroup) should
+  # have distinct names.
+  def xref_name
+    # Do not use this to override xref_name for specific objects. Only use
+    # it for object families.
+    case isa.to_s
+    when /BuildPhase$/
+      isa.to_s
+    else
+      self['name'] || self['explicitPath'] || self['path'] 
+    end
+  end  
+  
     
   # Deep copy
   def self.from(object_or_hash)
@@ -153,6 +180,6 @@ class ZergXcode::XcodeObject
   
   def copy_metadata(source)
     self.archive_id, self.version = source.archive_id, source.version 
-  end
+  end  
 end
 

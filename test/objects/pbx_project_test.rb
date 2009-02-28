@@ -71,4 +71,9 @@ class PBXProjectTest < Test::Unit::TestCase
     
     assert_equal project.source_filename, clone.source_filename
   end
+  
+  def test_xref_name
+    project = ZergXcode.load('testdata/project.pbxproj')
+    assert_equal 'PBXProject', project.xref_name
+  end
 end

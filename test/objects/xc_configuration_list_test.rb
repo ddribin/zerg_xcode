@@ -5,8 +5,10 @@ require 'zerg_xcode'
 class XCConfigurationListTest < Test::Unit::TestCase
   XCConfigurationList = ZergXcode::Objects::XCConfigurationList
   
-  def test_instantiation
+  def test_xref_name
     proj = ZergXcode.load 'testdata/project.pbxproj'
-    assert_equal XCConfigurationList, proj['buildConfigurationList'].class
+    list = proj['buildConfigurationList']
+    assert_equal XCConfigurationList, list.class
+    assert_equal 'XCConfigurationList', list.xref_name
   end
 end

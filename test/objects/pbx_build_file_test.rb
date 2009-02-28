@@ -35,4 +35,10 @@ class PBXBuildFileTest < Test::Unit::TestCase
       end
     end
   end
+  
+  def test_xref_name
+    sources_phase = @target['buildPhases'][1]
+    build_file = sources_phase['files'].first
+    assert_equal 'main.m', build_file.xref_name
+  end
 end
