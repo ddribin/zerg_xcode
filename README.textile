@@ -25,6 +25,9 @@ zerg-xcode help ls
 zerg-xcode ls ProjectName
 </pre>
 
+You can learn all about importing projects in
+"this blog post":http://blog.costan.us/2009/02/iphone-development-and-code-sharing.html
+
 h2. Developer Notes
 
 The rest of the file is useful if you're considering tweaking the code. Here are
