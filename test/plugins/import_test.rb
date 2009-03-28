@@ -25,14 +25,34 @@ class Plugins::ImportTest < Test::Unit::TestCase
     project = ZergXcode.load 'testdata/ZergSupport'
     assert_import_identical project    
   end
+
+  def test_import_identical_30app
+    project = ZergXcode.load 'testdata/TestApp30'
+    assert_import_identical project
+  end
   
+  def test_import_identical_30lib
+    project = ZergXcode.load 'testdata/TestApp30'
+    assert_import_identical project
+  end
+
   def test_import_differents
     small = ZergXcode.load 'testdata/TestApp'
+    large = ZergXcode.load 'testdata/ZergSupport'
+    assert_import_differents small, large
+  end
+  
+  def test_import_differents_30
+    small = ZergXcode.load 'testdata/TestApp30'
+    large = ZergXcode.load 'testdata/TestLib30'
+    assert_import_differents small, large    
+  end
+
+  def assert_import_differents(small, large)
     small_file_set = Set.new(small.all_files.map { |file| file[:path] })
     small_target_set = Set.new(small['targets'].map { |t| t['name'] })
     small_target_filesets = target_filesets small
     
-    large = ZergXcode.load 'testdata/ZergSupport'
     large_file_set = Set.new(large.all_files.map { |file| file[:path] })
     large_target_set = Set.new(large['targets'].map { |t| t['name'] })
     large_target_filesets = target_filesets large
@@ -108,6 +128,16 @@ class Plugins::ImportTest < Test::Unit::TestCase
     project = ZergXcode.load 'testdata/ZergSupport'
     assert_cross_reference_covers_project project    
   end
+
+  def test_cross_reference_identical_30app
+    project = ZergXcode.load 'testdata/TestApp30'
+    assert_cross_reference_covers_project project
+  end
+
+  def test_cross_reference_identical_30lib
+    project = ZergXcode.load 'testdata/TestLib30'
+    assert_cross_reference_covers_project project
+  end
   
   def assert_cross_reference_covers_project(project)
     cloned_project = ZergXcode::XcodeObject.from project
@@ -120,7 +150,8 @@ class Plugins::ImportTest < Test::Unit::TestCase
     end
     
     objects.each do |object|
-      assert map.include?(object), "Missed object #{object.xref_key.inspect}"
+      assert map.include?(object),
+             "Missed object #{object.xref_key.inspect}: #{object.inspect}"
       
       assert_equal object.xref_key, map[object].xref_key,
                    "Merge keys for cross-referenced objects do not match"

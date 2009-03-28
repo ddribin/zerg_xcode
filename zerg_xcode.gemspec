@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{zerg_xcode}
-  s.version = "0.3"
+  s.version = "0.3.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
   s.authors = ["Victor Costan"]
-  s.date = %q{2009-02-28}
+  s.date = %q{2009-03-28}
   s.default_executable = %q{bin/zerg-xcode}
   s.description = %q{Automated modifications for Xcode project files}
   s.email = %q{victor@zergling.net}

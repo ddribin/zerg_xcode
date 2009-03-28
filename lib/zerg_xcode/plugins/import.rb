@@ -219,8 +219,10 @@ END
   
   # Cross-references the objects in two object graphs that are to be merged.
   # Returns a Hash associating objects in both the source and the target object
-  # graphs with the corresponding objects in the 
-  def cross_reference(source, target, mappings = {})
+  # graphs with the target objects that represent the same entities.
+  # Setting strict to true returns fewer matches, and should be used for
+  # entangling projects. Setting strict to false should work better for merges.
+  def cross_reference(source, target, strict = false, mappings = {})
     if source.class != target.class
       raise "Attempting to cross-reference different kinds of objects - " +
             "#{source.class} != #{target.class}"
@@ -237,29 +239,32 @@ END
       return mappings
     end
     
-    self.send cross_op, source, target, mappings
+    self.send cross_op, source, target, strict, mappings
   end
     
-  def cross_reference_objects(source, target, mappings)
-    return mappings if mappings[source] || mappings[target]    
-    return mappings if source.xref_key != target.xref_key
+  def cross_reference_objects(source, target, strict, mappings)
+    return mappings if mappings[source] || mappings[target]
+    
+    if strict
+      return mappings if source.xref_key != target.xref_key
+    end
     
     mappings[target] = target
     mappings[source] = target
-    cross_reference source._attr_hash, target._attr_hash, mappings
+    cross_reference source._attr_hash, target._attr_hash, strict, mappings
   end
   private :cross_reference_objects
   
-  def cross_reference_hashes(source, target, mappings)
+  def cross_reference_hashes(source, target, strict, mappings)
     source.each_key do |key|
       p [source.keys, key] if source[key].nil? 
-      cross_reference source[key], target[key], mappings if target[key]
+      cross_reference source[key], target[key], strict, mappings if target[key]
     end
     mappings
   end
   private :cross_reference_hashes
   
-  def cross_reference_enumerables(source, target, mappings)
+  def cross_reference_enumerables(source, target, strict, mappings)
     source_keys = {}
     source.each do |value|
       next unless value.kind_of? ZergXcode::XcodeObject
@@ -268,7 +273,7 @@ END
     target.each do |value|
       next unless value.kind_of? ZergXcode::XcodeObject
       next unless source_value = source_keys[value.xref_key]
-      cross_reference source_value, value, mappings
+      cross_reference source_value, value, strict, mappings
     end
     mappings
   end
