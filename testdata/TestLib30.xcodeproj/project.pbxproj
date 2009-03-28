@@ -1,0 +1,262 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FEA834240F7D0C7800A7B03D /* MAKVONotificationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = FEAC43C60F7CF4C1005F5FF8 /* MAKVONotificationCenter.h */; };
+		FEA834250F7D0C7800A7B03D /* TTDGeometry.h in Headers */ = {isa = PBXBuildFile; fileRef = FEAC43C80F7CF4C1005F5FF8 /* TTDGeometry.h */; };
+		FEA834260F7D0C7800A7B03D /* TTDLog.h in Headers */ = {isa = PBXBuildFile; fileRef = FEAC43CA0F7CF4C1005F5FF8 /* TTDLog.h */; };
+		FEA834270F7D0C7800A7B03D /* TTDNetworkActivityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = FEAC43CB0F7CF4C1005F5FF8 /* TTDNetworkActivityManager.h */; };
+		FEA834280F7D0C7800A7B03D /* TTDURLDownloadOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = FEAC43CD0F7CF4C2005F5FF8 /* TTDURLDownloadOperation.h */; };
+		FEA834290F7D0C7800A7B03D /* TTDError.h in Headers */ = {isa = PBXBuildFile; fileRef = FEAC43CE0F7CF4C2005F5FF8 /* TTDError.h */; };
+		FEA8342B0F7D0C7800A7B03D /* SFHFKeychainUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = FEAC43D30F7CF4C2005F5FF8 /* SFHFKeychainUtils.h */; };
+		FEA8342C0F7D0C7800A7B03D /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = FEAC43D50F7CF4C2005F5FF8 /* Reachability.h */; };
+		FEA8342D0F7D0C7800A7B03D /* TTDURLConcurrentDownloadOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = FEAC43D60F7CF4C3005F5FF8 /* TTDURLConcurrentDownloadOperation.h */; };
+		FEA8342E0F7D0C7800A7B03D /* GTMGeometryUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = FEAC43D70F7CF4C3005F5FF8 /* GTMGeometryUtils.h */; };
+		FEA8342F0F7D0C7800A7B03D /* SynthesizeSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = FEAC43D80F7CF4C3005F5FF8 /* SynthesizeSingleton.h */; };
+		FEA834300F7D0C7800A7B03D /* ActivitySmokeView.h in Headers */ = {isa = PBXBuildFile; fileRef = FEAC43DA0F7CF4C3005F5FF8 /* ActivitySmokeView.h */; };
+		FEA834310F7D0C7800A7B03D /* TTDNetworkActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FEAC43C70F7CF4C1005F5FF8 /* TTDNetworkActivityManager.m */; };
+		FEA834320F7D0C7800A7B03D /* TTDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = FEAC43C90F7CF4C1005F5FF8 /* TTDLog.m */; };
+		FEA834330F7D0C7800A7B03D /* TTDURLDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FEAC43CC0F7CF4C2005F5FF8 /* TTDURLDownloadOperation.m */; };
+		FEA834340F7D0C7800A7B03D /* ActivitySmokeView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEAC43CF0F7CF4C2005F5FF8 /* ActivitySmokeView.m */; };
+		FEA834360F7D0C7800A7B03D /* MAKVONotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = FEAC43D20F7CF4C2005F5FF8 /* MAKVONotificationCenter.m */; };
+		FEA834370F7D0C7800A7B03D /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FEAC43D40F7CF4C2005F5FF8 /* SFHFKeychainUtils.m */; };
+		FEA834380F7D0C7800A7B03D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FEAC43D90F7CF4C3005F5FF8 /* Reachability.m */; };
+		FEA834390F7D0C7800A7B03D /* TTDURLConcurrentDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FEAC43DB0F7CF4C3005F5FF8 /* TTDURLConcurrentDownloadOperation.m */; };
+		FEA8343A0F7D0C7800A7B03D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAC44D10F7CFB9C005F5FF8 /* UIKit.framework */; };
+		FEA8343C0F7D0C7800A7B03D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAC44AA0F7CFAE1005F5FF8 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FEAC43C60F7CF4C1005F5FF8 /* MAKVONotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAKVONotificationCenter.h; sourceTree = "<group>"; };
+		FEAC43C70F7CF4C1005F5FF8 /* TTDNetworkActivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDNetworkActivityManager.m; sourceTree = "<group>"; };
+		FEAC43C80F7CF4C1005F5FF8 /* TTDGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDGeometry.h; sourceTree = "<group>"; };
+		FEAC43C90F7CF4C1005F5FF8 /* TTDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDLog.m; sourceTree = "<group>"; };
+		FEAC43CA0F7CF4C1005F5FF8 /* TTDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDLog.h; sourceTree = "<group>"; };
+		FEAC43CB0F7CF4C1005F5FF8 /* TTDNetworkActivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDNetworkActivityManager.h; sourceTree = "<group>"; };
+		FEAC43CC0F7CF4C2005F5FF8 /* TTDURLDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDURLDownloadOperation.m; sourceTree = "<group>"; };
+		FEAC43CD0F7CF4C2005F5FF8 /* TTDURLDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDURLDownloadOperation.h; sourceTree = "<group>"; };
+		FEAC43CE0F7CF4C2005F5FF8 /* TTDError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDError.h; sourceTree = "<group>"; };
+		FEAC43CF0F7CF4C2005F5FF8 /* ActivitySmokeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivitySmokeView.m; sourceTree = "<group>"; };
+		FEAC43D20F7CF4C2005F5FF8 /* MAKVONotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAKVONotificationCenter.m; sourceTree = "<group>"; };
+		FEAC43D30F7CF4C2005F5FF8 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
+		FEAC43D40F7CF4C2005F5FF8 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
+		FEAC43D50F7CF4C2005F5FF8 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		FEAC43D60F7CF4C3005F5FF8 /* TTDURLConcurrentDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDURLConcurrentDownloadOperation.h; sourceTree = "<group>"; };
+		FEAC43D70F7CF4C3005F5FF8 /* GTMGeometryUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMGeometryUtils.h; sourceTree = "<group>"; };
+		FEAC43D80F7CF4C3005F5FF8 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
+		FEAC43D90F7CF4C3005F5FF8 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		FEAC43DA0F7CF4C3005F5FF8 /* ActivitySmokeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivitySmokeView.h; sourceTree = "<group>"; };
+		FEAC43DB0F7CF4C3005F5FF8 /* TTDURLConcurrentDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDURLConcurrentDownloadOperation.m; sourceTree = "<group>"; };
+		FEAC44760F7CFA74005F5FF8 /* libTTDUtil.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTTDUtil.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEAC44AA0F7CFAE1005F5FF8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		FEAC44D10F7CFB9C005F5FF8 /* UIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FEAC44740F7CFA74005F5FF8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEA8343A0F7D0C7800A7B03D /* UIKit.framework in Frameworks */,
+				FEA8343C0F7D0C7800A7B03D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FEA834110F7D0BCA00A7B03D /* TTDUtil */ = {
+			isa = PBXGroup;
+			children = (
+				FEAC43C60F7CF4C1005F5FF8 /* MAKVONotificationCenter.h */,
+				FEAC43C70F7CF4C1005F5FF8 /* TTDNetworkActivityManager.m */,
+				FEAC43C80F7CF4C1005F5FF8 /* TTDGeometry.h */,
+				FEAC43C90F7CF4C1005F5FF8 /* TTDLog.m */,
+				FEAC43CA0F7CF4C1005F5FF8 /* TTDLog.h */,
+				FEAC43CB0F7CF4C1005F5FF8 /* TTDNetworkActivityManager.h */,
+				FEAC43CC0F7CF4C2005F5FF8 /* TTDURLDownloadOperation.m */,
+				FEAC43CD0F7CF4C2005F5FF8 /* TTDURLDownloadOperation.h */,
+				FEAC43CE0F7CF4C2005F5FF8 /* TTDError.h */,
+				FEAC43CF0F7CF4C2005F5FF8 /* ActivitySmokeView.m */,
+				FEAC43D20F7CF4C2005F5FF8 /* MAKVONotificationCenter.m */,
+				FEAC43D30F7CF4C2005F5FF8 /* SFHFKeychainUtils.h */,
+				FEAC43D40F7CF4C2005F5FF8 /* SFHFKeychainUtils.m */,
+				FEAC43D50F7CF4C2005F5FF8 /* Reachability.h */,
+				FEAC43D60F7CF4C3005F5FF8 /* TTDURLConcurrentDownloadOperation.h */,
+				FEAC43D70F7CF4C3005F5FF8 /* GTMGeometryUtils.h */,
+				FEAC43D80F7CF4C3005F5FF8 /* SynthesizeSingleton.h */,
+				FEAC43D90F7CF4C3005F5FF8 /* Reachability.m */,
+				FEAC43DA0F7CF4C3005F5FF8 /* ActivitySmokeView.h */,
+				FEAC43DB0F7CF4C3005F5FF8 /* TTDURLConcurrentDownloadOperation.m */,
+			);
+			name = TTDUtil;
+			sourceTree = "<group>";
+		};
+		FEAC43B70F7CF4AE005F5FF8 = {
+			isa = PBXGroup;
+			children = (
+				FEA834110F7D0BCA00A7B03D /* TTDUtil */,
+				FEAC44770F7CFA74005F5FF8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FEAC44770F7CFA74005F5FF8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FEAC44D10F7CFB9C005F5FF8 /* UIKit.framework */,
+				FEAC44760F7CFA74005F5FF8 /* libTTDUtil.a */,
+				FEAC44AA0F7CFAE1005F5FF8 /* Foundation.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		FEAC44720F7CFA74005F5FF8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEA834240F7D0C7800A7B03D /* MAKVONotificationCenter.h in Headers */,
+				FEA834250F7D0C7800A7B03D /* TTDGeometry.h in Headers */,
+				FEA834260F7D0C7800A7B03D /* TTDLog.h in Headers */,
+				FEA834270F7D0C7800A7B03D /* TTDNetworkActivityManager.h in Headers */,
+				FEA834280F7D0C7800A7B03D /* TTDURLDownloadOperation.h in Headers */,
+				FEA834290F7D0C7800A7B03D /* TTDError.h in Headers */,
+				FEA8342B0F7D0C7800A7B03D /* SFHFKeychainUtils.h in Headers */,
+				FEA8342C0F7D0C7800A7B03D /* Reachability.h in Headers */,
+				FEA8342D0F7D0C7800A7B03D /* TTDURLConcurrentDownloadOperation.h in Headers */,
+				FEA8342E0F7D0C7800A7B03D /* GTMGeometryUtils.h in Headers */,
+				FEA8342F0F7D0C7800A7B03D /* SynthesizeSingleton.h in Headers */,
+				FEA834300F7D0C7800A7B03D /* ActivitySmokeView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		FEAC44750F7CFA74005F5FF8 /* TTDUtil */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FEAC447A0F7CFA75005F5FF8 /* Build configuration list for PBXNativeTarget "TTDUtil" */;
+			buildPhases = (
+				FEAC44720F7CFA74005F5FF8 /* Headers */,
+				FEAC44730F7CFA74005F5FF8 /* Sources */,
+				FEAC44740F7CFA74005F5FF8 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TTDUtil;
+			productName = TTDUtil;
+			productReference = FEAC44760F7CFA74005F5FF8 /* libTTDUtil.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FEAC43B90F7CF4AE005F5FF8 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = FEAC43BC0F7CF4AE005F5FF8 /* Build configuration list for PBXProject "TTDUtil" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 0;
+			mainGroup = FEAC43B70F7CF4AE005F5FF8;
+			productRefGroup = FEAC44770F7CFA74005F5FF8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FEAC44750F7CFA74005F5FF8 /* TTDUtil */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FEAC44730F7CFA74005F5FF8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEA834310F7D0C7800A7B03D /* TTDNetworkActivityManager.m in Sources */,
+				FEA834320F7D0C7800A7B03D /* TTDLog.m in Sources */,
+				FEA834330F7D0C7800A7B03D /* TTDURLDownloadOperation.m in Sources */,
+				FEA834340F7D0C7800A7B03D /* ActivitySmokeView.m in Sources */,
+				FEA834360F7D0C7800A7B03D /* MAKVONotificationCenter.m in Sources */,
+				FEA834370F7D0C7800A7B03D /* SFHFKeychainUtils.m in Sources */,
+				FEA834380F7D0C7800A7B03D /* Reachability.m in Sources */,
+				FEA834390F7D0C7800A7B03D /* TTDURLConcurrentDownloadOperation.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		FEAC43BA0F7CF4AE005F5FF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+		FEAC43BB0F7CF4AE005F5FF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+			};
+			name = Release;
+		};
+		FEAC44780F7CFA75005F5FF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = armv6;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PREBINDING = NO;
+				PRODUCT_NAME = TTDUtil;
+				SDKROOT = iphoneos2.0;
+			};
+			name = Debug;
+		};
+		FEAC44790F7CFA75005F5FF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PREBINDING = NO;
+				PRODUCT_NAME = TTDUtil;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FEAC43BC0F7CF4AE005F5FF8 /* Build configuration list for PBXProject "TTDUtil" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEAC43BA0F7CF4AE005F5FF8 /* Debug */,
+				FEAC43BB0F7CF4AE005F5FF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FEAC447A0F7CFA75005F5FF8 /* Build configuration list for PBXNativeTarget "TTDUtil" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEAC44780F7CFA75005F5FF8 /* Debug */,
+				FEAC44790F7CFA75005F5FF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FEAC43B90F7CF4AE005F5FF8 /* Project object */;
+}

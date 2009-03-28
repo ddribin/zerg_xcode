@@ -43,6 +43,7 @@ test/objects/pbx_project_test.rb
 test/objects/pbx_target_dependency_test.rb
 test/objects/xc_configuration_list_test.rb
 test/objects/xcode_object_test.rb
+test/plugins/addlibrary_test.rb
 test/plugins/core/core_test.rb
 test/plugins/import_test.rb
 test/plugins/irb_test.rb
@@ -55,5 +56,7 @@ testdata/FlatTestApp/FlatTestApp.xcodeproj/project.pbxproj
 testdata/project.pbxproj
 testdata/project.pbxproj.compat
 testdata/TestApp/TestApp.xcodeproj/project.pbxproj
+testdata/TestApp30.xcodeproj/project.pbxproj
+testdata/TestLib30.xcodeproj/project.pbxproj
 testdata/ZergSupport.xcodeproj/project.pbxproj
 zerg_xcode.gemspec
