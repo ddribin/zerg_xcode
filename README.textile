@@ -28,6 +28,10 @@ zerg-xcode ls ProjectName
 You can learn all about importing projects in
 "this blog post":http://blog.costan.us/2009/02/iphone-development-and-code-sharing.html
 
+"ZergSupport":http://github.com/costan/zergsupport/ is an example of a project
+that you can import. You can read more about it in
+"this blog post":http://blog.costan.us/2009/04/toolkit-for-iphone-web-service.html
+
 h2. Developer Notes
 
 The rest of the file is useful if you're considering tweaking the code. Here are
@@ -126,4 +130,5 @@ h3. Testing
 
 The <code>test</code> directory contains a parallel tree to
 <code>lib/zerg_xcode</code>. Coverage must remain excellent, because this is a
-tool that deals with people's work.
+tool that operates on developers's hard work, which may not be protected by
+version control.
