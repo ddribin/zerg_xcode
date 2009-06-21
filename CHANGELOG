@@ -1,3 +1,5 @@
+v0.3.3. Fixed wrong error message in addtarget.
+
 v0.3.2. Included Xcode 3.0 test data, with permission.
 
 v0.3.1. Tiny hack to allow importing Xcode 3.0 projects.

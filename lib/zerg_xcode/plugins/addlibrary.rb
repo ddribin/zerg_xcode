@@ -25,7 +25,7 @@ END
       return
     end
     unless target = find_target(target_name, project)      
-      print "#{lib_target_name} not found. #{ad}"
+      print "#{target_name} not found. #{ad}"
       return
     end
 
