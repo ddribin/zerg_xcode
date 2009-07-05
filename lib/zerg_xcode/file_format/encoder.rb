@@ -4,10 +4,10 @@ module ZergXcode::Encoder
   end
 
   def self.encode_hash(hash, indentation)
-    "{\n" + hash.map { |key, value|
+    "{\n" + hash.keys.sort.map { |key|
       encode_indentation(indentation + 1) + 
       encode_value(key, indentation + 1) + " = " +
-      encode_object(value, indentation + 1) + ";\n"
+      encode_object(hash[key], indentation + 1) + ";\n"
     }.join + encode_indentation(indentation) + "}"
   end
   

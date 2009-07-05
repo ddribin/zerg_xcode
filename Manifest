@@ -45,12 +45,12 @@ test/objects/xc_configuration_list_test.rb
 test/objects/xcode_object_test.rb
 test/plugins/addlibrary_test.rb
 test/plugins/core/core_test.rb
+test/plugins/helper.rb
 test/plugins/import_test.rb
 test/plugins/irb_test.rb
 test/plugins/ls_test.rb
 test/plugins/lstargets_test.rb
 test/plugins/retarget_test.rb
-test/plugins/test_helper.rb
 test/shortcuts_test.rb
 testdata/FlatTestApp/FlatTestApp.xcodeproj/project.pbxproj
 testdata/project.pbxproj
@@ -59,4 +59,3 @@ testdata/TestApp/TestApp.xcodeproj/project.pbxproj
 testdata/TestApp30.xcodeproj/project.pbxproj
 testdata/TestLib30.xcodeproj/project.pbxproj
 testdata/ZergSupport.xcodeproj/project.pbxproj
-zerg_xcode.gemspec

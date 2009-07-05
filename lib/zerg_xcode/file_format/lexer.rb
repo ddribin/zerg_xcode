@@ -1,7 +1,7 @@
 module ZergXcode::Lexer
   def self.tokenize(string)
     
-    encoding_match = string.match /^\/\/ \!\$\*(.*?)\*\$\!/
+    encoding_match = string.match(/^\/\/ \!\$\*(.*?)\*\$\!/)
     raise "No encoding - #{string[0, 20]}" unless encoding_match
     
     i = encoding_match[0].length

@@ -3,7 +3,7 @@ require 'test/unit'
 require 'zerg_xcode'
 
 require 'rubygems'
-require 'flexmock'
+require 'flexmock/test_unit'
 
 
 class PBXProjectTest < Test::Unit::TestCase
