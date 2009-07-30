@@ -1,4 +1,5 @@
 require 'test/unit'
+require 'zerg_xcode'
 
 class PathTest < Test::Unit::TestCase
   Paths = ZergXcode::Paths

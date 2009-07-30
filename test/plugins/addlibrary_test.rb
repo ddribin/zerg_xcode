@@ -1,9 +1,7 @@
 require 'test/unit'
-require 'test/plugins/test_helper.rb'
+require 'test/plugins/helper.rb'
 
 require 'zerg_xcode'
-
-require 'rubygems'
 
 module Plugins; end
 

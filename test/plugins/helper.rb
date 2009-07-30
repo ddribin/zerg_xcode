@@ -13,6 +13,7 @@ module Plugins::TestHelper
       return output
     ensure
       Kernel.class_eval do
+        undef print
         alias_method :print, :no_print_for_now
         undef no_print_for_now
       end

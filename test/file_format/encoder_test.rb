@@ -1,4 +1,5 @@
 require 'test/unit'
+require 'zerg_xcode'
 
 class EncoderTest < Test::Unit::TestCase
   def test_encoder
