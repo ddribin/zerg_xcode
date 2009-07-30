@@ -32,6 +32,10 @@ class ZergXcode::Objects::PBXProject < ZergXcode::XcodeObject
   def xref_name
     isa.to_s
   end  
+  
+  def find_group_named name
+    self["mainGroup"].find_group_named name
+  end  
 
   # Container for the visitor that lists all files in a project.
   module FileVisitor
