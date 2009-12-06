@@ -10,7 +10,7 @@ module ZergXcode::Objects
 
 # The root object in the Xcode object graph.
 class PBXProject < ZergXcode::XcodeObject
-  # Used to implement save!
+  # Used to implement save! and to support builds.
   attr_accessor :source_filename
   
   # :nodoc: override to copy the new metadata
@@ -86,7 +86,7 @@ class PBXProject < ZergXcode::XcodeObject
       end
       return path
     end
-  end
+  end  # module ZergXcode::Objects::PBXProject::FileVisitor
 end  # class ZergXcode::Objects::PBXProject
 
 end  # namespace class ZergXcode::Objects

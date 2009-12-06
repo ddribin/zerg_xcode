@@ -6,6 +6,8 @@ RUBYFORGE
 Rakefile
 bin/zerg-xcode
 lib/zerg_xcode.rb
+lib/zerg_xcode/builder/runner.rb
+lib/zerg_xcode/builder/sdks.rb
 lib/zerg_xcode/file_format/archiver.rb
 lib/zerg_xcode/file_format/encoder.rb
 lib/zerg_xcode/file_format/lexer.rb
@@ -29,11 +31,17 @@ lib/zerg_xcode/plugins/ls.rb
 lib/zerg_xcode/plugins/lstargets.rb
 lib/zerg_xcode/plugins/retarget.rb
 lib/zerg_xcode/shortcuts.rb
+test/builder/runner_test.rb
+test/builder/sdk_test.rb
 test/file_format/archiver_test.rb
 test/file_format/encoder_test.rb
 test/file_format/lexer_test.rb
 test/file_format/parser_test.rb
 test/file_format/path_test.rb
+test/fixtures/ClosedLib/ClosedLib.xcodeproj/project.pbxproj
+test/fixtures/ClosedLib/ClosedLib_Prefix.pch
+test/fixtures/ClosedLib/ClosedNative.c
+test/fixtures/ClosedLib/ClosedNative.h
 test/fixtures/FlatTestApp/FlatTestApp.xcodeproj/project.pbxproj
 test/fixtures/TestApp/TestApp.xcodeproj/project.pbxproj
 test/fixtures/TestApp30.xcodeproj/project.pbxproj
@@ -59,4 +67,3 @@ test/plugins/ls_test.rb
 test/plugins/lstargets_test.rb
 test/plugins/retarget_test.rb
 test/shortcuts_test.rb
-zerg_xcode.gemspec

@@ -10,6 +10,9 @@ require 'zerg_xcode/file_format/lexer.rb'
 require 'zerg_xcode/file_format/parser.rb'
 require 'zerg_xcode/file_format/paths.rb'
 
+require 'zerg_xcode/builder/runner.rb'
+require 'zerg_xcode/builder/sdks.rb'
+
 require 'zerg_xcode/objects/xcode_object.rb'
 require 'zerg_xcode/objects/pbx_build_file.rb'
 require 'zerg_xcode/objects/pbx_build_phase.rb'
