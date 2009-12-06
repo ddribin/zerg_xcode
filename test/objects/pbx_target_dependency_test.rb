@@ -1,12 +1,16 @@
-require 'test/unit'
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
 
 require 'zerg_xcode'
+require 'test/unit'
 
 class PBXTargetDependencyTest < Test::Unit::TestCase
   PBXTargetDependency = ZergXcode::Objects::PBXTargetDependency
   
   def setup
-    @project = ZergXcode.load 'testdata/ZergSupport.xcodeproj/project.pbxproj'
+    @project = ZergXcode.load(
+        'test/fixtures/ZergSupport.xcodeproj/project.pbxproj')
     @dependency = @project['targets'][2]['dependencies'].first
     @target = @project['targets'][1]
   end

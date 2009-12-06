@@ -1,4 +1,15 @@
-class ZergXcode::Plugins::Retarget
+# Adds files to a build target, and removes them from all the other targets.
+#
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
+
+# :nodoc: namespace
+module ZergXcode::Plugins
+
+
+# Adds files to a build target, and removes them from all the other targets.
+class Retarget
   include ZergXcode::Objects
   
   def help
@@ -83,4 +94,6 @@ END
       end
     end
   end
-end
+end  # class ZergXcode::Plugins::Retarget
+
+end  # namespace ZergXcode::Plugins

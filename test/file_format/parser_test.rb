@@ -1,9 +1,13 @@
-require 'test/unit'
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
+
 require 'zerg_xcode'
+require 'test/unit'
 
 class ParserTest < Test::Unit::TestCase
   def test_parser
-    pbxdata = File.read 'testdata/project.pbxproj'
+    pbxdata = File.read 'test/fixtures/project.pbxproj'
     proj = ZergXcode::Parser.parse pbxdata
     
     assert proj.kind_of?(Hash), 'Project structure should be a hash'

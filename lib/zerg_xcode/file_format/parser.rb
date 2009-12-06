@@ -1,4 +1,15 @@
-module ZergXcode::Parser
+# Parser for flattened object graphs stored in .pbxproj files.
+#
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
+
+# :nodoc: namespace
+module ZergXcode
+
+
+# Parser for flattened object graphs stored in .xcodeproj files.
+module Parser
   def self.parse(project_string)
     tokens = ZergXcode::Lexer.tokenize project_string
     
@@ -43,4 +54,6 @@ module ZergXcode::Parser
     end
     return context[0][0]
   end  
-end
+end  # module ZergXcode::Parser
+
+end  # namespace ZergXcode

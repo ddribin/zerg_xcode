@@ -1,6 +1,17 @@
+# Plugin management logic.
+#
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
+
 require 'set'
 
-module ZergXcode::Plugins
+# :nodoc: namespace
+module ZergXcode
+  
+
+# Plugin management logic.
+module Plugins
   def self.all
     plugin_dir = File.join(File.dirname(__FILE__), '..')
     plugins = Dir.entries(plugin_dir).select { |entry|
@@ -19,7 +30,7 @@ module ZergXcode::Plugins
   
   def self.get(plugin_name)
     self.require plugin_name
-    ZergXcode::Plugins.const_get(plugin_name.capitalize).new
+    Plugins.const_get(plugin_name.capitalize).new
   end
   
   def self.run(plugin_name, args)
@@ -29,8 +40,6 @@ module ZergXcode::Plugins
   def self.help(plugin_name)
     self.get(plugin_name).help
   end
-end
+end  # module ZergXcode::Plugins
 
-# :nodoc:
-module ZergXcode
-end
+end  # namespace ZergXcode

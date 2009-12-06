@@ -1,6 +1,8 @@
-module ZergXcode; end
-module ZergXcode::Objects; end
-
+# Main include file for the zerg_xcode gem.
+#
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
 
 require 'zerg_xcode/file_format/archiver.rb'
 require 'zerg_xcode/file_format/encoder.rb'

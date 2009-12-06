@@ -1,4 +1,15 @@
-module ZergXcode::Lexer
+# Lexer for flattened object graphs stored in .pbxproj files.
+#
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
+
+# :nodoc: namespace
+module ZergXcode
+
+
+# Lexer for flattened object graphs stored in .xcodeproj files.
+module Lexer
   def self.tokenize(string)
     
     encoding_match = string.match(/^\/\/ \!\$\*(.*?)\*\$\!/)
@@ -57,4 +68,6 @@ module ZergXcode::Lexer
     end
     return tokens
   end
-end
+end  # module ZergXcode::Lexer
+
+end  # namespace ZergXcode

@@ -1,4 +1,15 @@
-class ZergXcode::Plugins::Help
+# Displays the help strings for other plugins.
+#
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
+
+# :nodoc: namespace
+module ZergXcode::Plugins
+
+
+# Displays the help strings for other plugins.
+class Help
   def help
     {:short => 'command-line usage instructions',
      :long => <<"END" }
@@ -27,4 +38,6 @@ END
     print helpstr
     helpstr
   end  
-end
+end  # class ZergXcode::Plugins::Help
+
+end  # namespace ZergXcode::Plugins

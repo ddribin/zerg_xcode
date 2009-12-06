@@ -1,5 +1,15 @@
-# Xcode objects
-class ZergXcode::XcodeObject
+# Superclass for all the objects in an Xcode project object graph.
+#
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
+
+# :nodoc: namespace
+module ZergXcode
+
+
+# Superclass for all the objects in an Xcode project object graph.
+class XcodeObject
   attr_accessor :version
   attr_accessor :archive_id
   
@@ -181,5 +191,6 @@ class ZergXcode::XcodeObject
   def copy_metadata(source)
     self.archive_id, self.version = source.archive_id, source.version 
   end  
-end
+end  # class ZergXcode::XcodeObject
 
+end  # namespace ZergXcode

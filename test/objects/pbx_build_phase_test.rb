@@ -1,12 +1,15 @@
-require 'test/unit'
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
 
 require 'zerg_xcode'
+require 'test/unit'
 
 class PBXBuildPhaseTest < Test::Unit::TestCase
   PBXBuildPhase = ZergXcode::Objects::PBXBuildPhase
   
   def setup
-    @target = ZergXcode.load('testdata/project.pbxproj')['targets'].first
+    @target = ZergXcode.load('test/fixtures/project.pbxproj')['targets'].first
     @sources_phase = @target['buildPhases'][1]
   end
   

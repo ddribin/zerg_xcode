@@ -1,8 +1,11 @@
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
+
+require 'zerg_xcode'
 require 'stringio'
 require 'test/unit'
 require 'test/plugins/helper.rb'
-
-require 'zerg_xcode'
 
 class Plugins::CoreTest < Test::Unit::TestCase  
   include Plugins::TestHelper

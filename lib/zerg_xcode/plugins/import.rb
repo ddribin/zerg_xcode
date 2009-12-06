@@ -1,7 +1,18 @@
+# Imports the contents of an Xcode project into another Xcode project.
+#
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
+
 require 'fileutils'
 require 'pathname'
 
-class ZergXcode::Plugins::Import
+# :nodoc: namespace
+module ZergXcode::Plugins
+
+
+# Imports the contents of an Xcode project into another Xcode project. 
+class Import
   include ZergXcode::Objects
   
   def help
@@ -278,4 +289,6 @@ END
     mappings
   end
   private :cross_reference_enumerables  
-end
+end  # class ZergXcode::Plugins::Import
+
+end  # namespace ZergXcode::Plugins

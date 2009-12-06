@@ -1,3 +1,7 @@
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
+
 module Plugins; end
   
 module Plugins::TestHelper

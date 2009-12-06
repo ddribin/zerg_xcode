@@ -1,4 +1,15 @@
-module ZergXcode::Paths
+# Xcode project path resolver.
+#
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
+
+# :nodoc: namespace
+module ZergXcode
+  
+
+# Finds the .pbxproj file inside an Xcode project.
+module Paths
   # The most likely project file name for the given path. 
   def self.project_file_at(base_path)
     return base_path if File.exist?(base_path) and File.file?(base_path)
@@ -41,4 +52,6 @@ module ZergXcode::Paths
     file = project_file_at base_path
     File.dirname File.dirname(file)
   end
-end
+end  # module ZergXcode::Paths
+
+end  # module ZergXcode

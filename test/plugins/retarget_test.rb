@@ -1,9 +1,12 @@
-require 'stringio'
-require 'test/unit'
-require 'test/plugins/helper.rb'
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
 
 require 'zerg_xcode'
+require 'stringio'
+require 'test/unit'
 
+require 'test/plugins/helper.rb'
 require 'rubygems'
 require 'flexmock'
 
@@ -13,7 +16,7 @@ class Plugins::RetargetTest < Test::Unit::TestCase
   def setup
     super
     @plugin = ZergXcode.plugin 'retarget'
-    @proj = ZergXcode.load 'testdata/TestApp/TestApp.xcodeproj'
+    @proj = ZergXcode.load 'test/fixtures/TestApp/TestApp.xcodeproj'
     @regexp = /^Test.*\.[^a]/
     
     @golden_list_for_app = [

@@ -1,5 +1,15 @@
-# An Xcode target.
-class ZergXcode::Objects::PBXNativeTarget < ZergXcode::XcodeObject
+# An Xcode build target.
+#
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
+
+# :nodoc: namespace
+module ZergXcode::Objects
+
+
+# An Xcode build target.
+class PBXNativeTarget < ZergXcode::XcodeObject
   # All the files referenced by this target.
   # Returns:
   #   an array containing a hash for each file with
@@ -16,4 +26,6 @@ class ZergXcode::Objects::PBXNativeTarget < ZergXcode::XcodeObject
     end
     files
   end
-end
+end  # class ZergXcode::Objects::PBXNativeTarget
+
+end  # namespace class ZergXcode::Objects

@@ -1,8 +1,11 @@
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
+
+require 'zerg_xcode'
 require 'stringio'
 require 'test/unit'
 require 'test/plugins/helper.rb'
-
-require 'zerg_xcode'
 
 module Plugins; end
   
@@ -31,12 +34,12 @@ class Plugins::LsTest < Test::Unit::TestCase
       ["SDKROOT/System/Library/Frameworks/CoreGraphics.framework",
        "wrapper.framework"],
       ["BUILT_PRODUCTS_DIR/TestApp.app", nil]]
-    file_list = @plugin.list_for 'testdata/project.pbxproj'
+    file_list = @plugin.list_for 'test/fixtures/project.pbxproj'
     assert_equal golden_list.sort, file_list.sort
   end  
   
   def test_run
-    output = capture_output { @plugin.run(['testdata']) }
+    output = capture_output { @plugin.run(['test/fixtures']) }
     assert_equal "sourcecode.c.h       ./Classes/TestAppAppDelegate.h",
                  output[/^(.*?)$/]
   end

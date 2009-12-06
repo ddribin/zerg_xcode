@@ -1,4 +1,15 @@
-module ZergXcode::Encoder  
+# Logic for writing flattened object graphs to .pbxproj files.
+#
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
+
+# :nodoc: namespace
+module ZergXcode
+
+  
+# Writes flattened object graphs to .xcodeproj files.
+module Encoder  
   def self.encode(project)
     "// !$*UTF8*$!\n" + encode_hash(project, 0) + "\n"
   end
@@ -37,4 +48,6 @@ module ZergXcode::Encoder
   def self.encode_indentation(indentation)
     "\t" * indentation
   end
-end
+end  # module ZergXcode::Encoder
+
+end  # namespace ZergXcode

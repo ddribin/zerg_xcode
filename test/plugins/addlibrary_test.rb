@@ -1,7 +1,10 @@
-require 'test/unit'
-require 'test/plugins/helper.rb'
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
 
 require 'zerg_xcode'
+require 'test/unit'
+require 'test/plugins/helper.rb'
 
 module Plugins; end
 
@@ -11,7 +14,7 @@ class Plugins::AddlibraryTest < Test::Unit::TestCase
   def setup
     super
     @plugin = ZergXcode.plugin 'addlibrary'
-    @project = ZergXcode.load 'testdata/ZergSupport'
+    @project = ZergXcode.load 'test/fixtures/ZergSupport'
     
     @lib, @test_lib, @test_app = *@project['targets']
   end

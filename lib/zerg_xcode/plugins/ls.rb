@@ -1,4 +1,15 @@
-class ZergXcode::Plugins::Ls
+# Lists the files in an Xcode project.
+#
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
+
+# :nodoc: namespace
+module ZergXcode::Plugins
+
+
+# Lists the files in an Xcode project.
+class Ls
   def help
     {:short => 'shows the files in a project',
      :long => <<"END" }
@@ -24,4 +35,6 @@ END
       [file[:path], file[:object]['lastKnownFileType']]
     end
   end  
-end
+end  # class ZergXcode::Plugins::Ls
+
+end  # namespace ZergXcode::Plugins

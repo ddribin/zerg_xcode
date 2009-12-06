@@ -1,5 +1,15 @@
-# Expresses a target's dependency on another target.
-class ZergXcode::Objects::PBXTargetDependency < ZergXcode::XcodeObject
+# A build target's dependency on another build target.
+#
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
+
+# :nodoc: namespace
+module ZergXcode::Objects
+
+
+# Expresses a build target's dependency on another build target.
+class PBXTargetDependency < ZergXcode::XcodeObject
   PBXContainerItemProxy = ZergXcode::Objects::PBXContainerItemProxy
   
   # The target that this target depends on.
@@ -17,4 +27,6 @@ class ZergXcode::Objects::PBXTargetDependency < ZergXcode::XcodeObject
   def xref_name
     target.xref_name
   end
-end
+end  # class ZergXcode::Objects::PBXTargetDependency
+
+end  # namespace ZergXcode::Objects

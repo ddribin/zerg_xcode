@@ -1,8 +1,18 @@
+# Proxy for another Xcode object.
+#
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
+
+# :nodoc: namespace
+module ZergXcode::Objects
+
+
 # Proxy for another object.
 #
 # Unsure these are useful, since each object has an unique ID. They are probably
 # implementation artifacts.
-class ZergXcode::Objects::PBXContainerItemProxy < ZergXcode::XcodeObject
+class PBXContainerItemProxy < ZergXcode::XcodeObject
   # The proxied object.
   def target
     self['remoteGlobalIDString']
@@ -20,4 +30,6 @@ class ZergXcode::Objects::PBXContainerItemProxy < ZergXcode::XcodeObject
   def xref_name
     self['remoteInfo']
   end  
-end
+end  # class ZergXcode::Objects::PBXContainerItemProxy
+
+end  # namespace ZergXcode::Objects

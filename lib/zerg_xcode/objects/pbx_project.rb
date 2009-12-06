@@ -1,5 +1,15 @@
 # The root object in the Xcode object graph.
-class ZergXcode::Objects::PBXProject < ZergXcode::XcodeObject
+#
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
+
+# :nodoc: namespace
+module ZergXcode::Objects
+
+
+# The root object in the Xcode object graph.
+class PBXProject < ZergXcode::XcodeObject
   # Used to implement save!
   attr_accessor :source_filename
   
@@ -73,4 +83,6 @@ class ZergXcode::Objects::PBXProject < ZergXcode::XcodeObject
       return path
     end
   end
-end
+end  # class ZergXcode::Objects::PBXProject
+
+end  # namespace class ZergXcode::Objects

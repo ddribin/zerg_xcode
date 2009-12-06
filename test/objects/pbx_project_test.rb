@@ -1,6 +1,9 @@
-require 'test/unit'
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
 
 require 'zerg_xcode'
+require 'test/unit'
 
 require 'rubygems'
 require 'flexmock/test_unit'
@@ -28,7 +31,7 @@ class PBXProjectTest < Test::Unit::TestCase
       ["BUILT_PRODUCTS_DIR/TestApp.app", nil],
     ]
     
-    project = ZergXcode.load('testdata/project.pbxproj')
+    project = ZergXcode.load('test/fixtures/project.pbxproj')
     assert_equal PBXProject, project.class 
     files = project.all_files
     file_list = files.map { |f| [f[:path], f[:object]['lastKnownFileType']] }
@@ -45,7 +48,7 @@ class PBXProjectTest < Test::Unit::TestCase
       ["./ZergSupport/TestSupport/GTM/GTMDefines.h", "sourcecode.c.h"],
       ["./ZergSupport/WebSupport/ZNHttpRequest.m", "sourcecode.c.objc"],
     ]
-    files = ZergXcode.load('testdata/ZergSupport').all_files
+    files = ZergXcode.load('test/fixtures/ZergSupport').all_files
     file_list = files.map { |f| [f[:path], f[:object]['lastKnownFileType']] }
     golden_entries.each do |entry|
       assert file_list.include?(entry), "Missing #{entry.inspect}"
@@ -53,27 +56,27 @@ class PBXProjectTest < Test::Unit::TestCase
   end
   
   def test_save
-    project = ZergXcode.load('testdata') 
+    project = ZergXcode.load('test/fixtures') 
     flexmock(ZergXcode).should_receive(:dump).
-                        with(project, 'testdata/project.pbxproj').
+                        with(project, 'test/fixtures/project.pbxproj').
                         and_return(nil)
     project.save!
   end
   
   def test_root_path
-    project = ZergXcode.load('testdata/ZergSupport.xcodeproj') 
-    assert_equal 'testdata', project.root_path
+    project = ZergXcode.load('test/fixtures/ZergSupport.xcodeproj') 
+    assert_equal 'test/fixtures', project.root_path
   end
   
   def test_copy_metadata
-    project = ZergXcode.load('testdata/ZergSupport.xcodeproj')
+    project = ZergXcode.load('test/fixtures/ZergSupport.xcodeproj')
     clone = ZergXcode::XcodeObject.from project
     
     assert_equal project.source_filename, clone.source_filename
   end
   
   def test_xref_name
-    project = ZergXcode.load('testdata/project.pbxproj')
+    project = ZergXcode.load('test/fixtures/project.pbxproj')
     assert_equal 'PBXProject', project.xref_name
   end
 end

@@ -1,4 +1,15 @@
-class ZergXcode::Plugins::Addlibrary
+# Adds a library target as a dependence to another Xcode target.
+#
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
+
+# :nodoc: namespace
+module ZergXcode::Plugins
+
+
+# Adds a library target as a dependence to another Xcode target.
+class Addlibrary
   include ZergXcode::Objects
   
   def help
@@ -118,4 +129,6 @@ END
           (setting.kind_of?(Enumerable) && setting.include?(option)))
     end
   end
-end
+end  # class ZergXcode::Plugins::Addlibrary
+
+end  # namespace ZergXcode::Plugins

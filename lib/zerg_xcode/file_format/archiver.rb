@@ -1,4 +1,15 @@
-module ZergXcode::Archiver
+# Logic for flattening and restoring  PBX (Xcode project) object graphs.
+#
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
+
+# :nodoc: namespace
+module ZergXcode
+
+
+# Flattens and restores PBX (Xcode project) object graphs.
+module Archiver
   # Unarchives an Xcode object graph from the contents of a file.
   def self.unarchive(string)
     proj_hash = ZergXcode::Parser.parse string
@@ -84,4 +95,6 @@ module ZergXcode::Archiver
       end
     end
   end
-end
+end  # module ZergXcode::Archiver
+
+end  # namespace ZergXcode

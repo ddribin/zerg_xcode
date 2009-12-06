@@ -1,3 +1,9 @@
+# Rakefile for the zerg_xcode gem.
+#
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
+
 require 'rubygems'
 require 'echoe'
 

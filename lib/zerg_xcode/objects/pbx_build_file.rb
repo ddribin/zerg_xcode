@@ -1,5 +1,15 @@
-# A file used for building. Points to a PBXFileRef.
-class ZergXcode::Objects::PBXBuildFile < ZergXcode::XcodeObject
+# A build input.
+#
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
+
+# :nodoc: namespace
+module ZergXcode::Objects
+
+
+# A build input. Points to a PBXFileRef.
+class PBXBuildFile < ZergXcode::XcodeObject
   # The name of the referenced file.
   def filename
     self['fileRef']['path']
@@ -34,4 +44,7 @@ class ZergXcode::Objects::PBXBuildFile < ZergXcode::XcodeObject
   def xref_name
     self['fileRef'].xref_name
   end  
-end
+end  # class ZergXcode::Objects:PBXBuildFile
+
+end  # namespace ZergXcode::Objects
+

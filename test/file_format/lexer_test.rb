@@ -1,9 +1,13 @@
-require 'test/unit'
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
+
 require 'zerg_xcode'
+require 'test/unit'
 
 class LexerTest < Test::Unit::TestCase
   def test_lexer
-    pbxdata = File.read 'testdata/project.pbxproj'
+    pbxdata = File.read 'test/fixtures/project.pbxproj'
     golden_starts = [[:encoding, "UTF8"],
                      :begin_hash,
                        [:symbol, "archiveVersion"], :assign, [:symbol, "1"],
@@ -48,7 +52,7 @@ class LexerTest < Test::Unit::TestCase
   end
   
   def test_escaped_string
-    pbxdata = File.read 'testdata/ZergSupport.xcodeproj/project.pbxproj'
+    pbxdata = File.read 'test/fixtures/ZergSupport.xcodeproj/project.pbxproj'
     tokens = ZergXcode::Lexer.tokenize pbxdata
     assert tokens.include?([:string,
                             "\"$(SRCROOT)/build/Debug-iphonesimulator\""])

@@ -1,3 +1,11 @@
+# Convenience methods for core ZergXcode functionality.
+#
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
+
+
+# :nodoc: namespace
 module ZergXcode
   # Reads an Xcode project from the filesystem.
   def self.load(path)
@@ -18,5 +26,5 @@ module ZergXcode
   # Instantiate a plug-in.
   def self.plugin(plugin_name)
     ZergXcode::Plugins.get(plugin_name)
-  end  
-end
+  end
+end  # namespace ZergXcode

@@ -1,7 +1,10 @@
-require 'set'
-require 'test/unit'
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
 
 require 'zerg_xcode'
+require 'set'
+require 'test/unit'
 
 class ObjectTest < Test::Unit::TestCase
   XcodeObject = ZergXcode::XcodeObject

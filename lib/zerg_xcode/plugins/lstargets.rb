@@ -1,4 +1,15 @@
-class ZergXcode::Plugins::Lstargets
+# Lists the build targets in an Xcode project.
+#
+# Author:: Victor Costan
+# Copyright:: Copyright (C) 2009 Zergling.Net
+# License:: MIT
+
+# :nodoc: namespace
+module ZergXcode::Plugins
+
+
+# Lists the build targets in an Xcode project.
+class Lstargets
   def help
     {:short => 'shows the targets in a project',
      :long => <<"END" }
@@ -26,4 +37,7 @@ END
       [target['name'], target['productName'], target['productType']]
     end
   end  
-end
+end  # class ZergXcode::Plugins::Lstargets
+
+end  # namespace ZergXcode::Plugins
+
